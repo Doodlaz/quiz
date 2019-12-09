@@ -1,38 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Backdrop from '../../UI/Backdrop/Backdrop'
 import { DrawerNav } from './styles';
 
 const links =[
-  1, 2, 3
-]
+  'Home', 'Somepage', 'About'
+];
 
-class Drawer extends Component {
+const Drawer = props => {
 
-  renderLinks() {
-    return links.map((link, index) => {
+  const { isOpen } = props;
+
+  const renderLinks = () => {
+    return links.map(( link, index ) => {
       return (
-        <li key={index}>
-          Link {link}
+        <li key={ index }>
+          <a href="#">{ link }</a>
         </li>
       )
     })
-  }
+  };
 
-  render () {
-    return (
-      <>
-        <DrawerNav
-          className={!this.props.isOpen ? 'close' : ''}
-        >
-          <ul>
-            { this.renderLinks() }
-          </ul>
-        </DrawerNav>
+  return (
+    <>
+      <DrawerNav className={ isOpen ? '' : 'close' } >
+        <ul> { renderLinks() } </ul>
+      </DrawerNav>
+      { isOpen ? <Backdrop /> : null }
+    </>
 
-        { this.props.isOpen ? <Backdrop /> : null }
-      </>
-
-    )
-  }
+  )
 }
-export default Drawer
+export default Drawer;

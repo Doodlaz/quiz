@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Layout from './hoc/Layout/Layout';
 import Quiz from '../src/containers/Quiz/Quiz';
 
-class App extends Component {
-  render() {
-    return (
-      <Layout>
-        <Quiz></Quiz>
-      </Layout>
-    )
-  }
+const App = () => {
+  return (
+    <Layout>
+      <Quiz />
+    </Layout>
+  )
 }
 export default App;
