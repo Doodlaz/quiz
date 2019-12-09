@@ -10,9 +10,15 @@ export const ButtonElement = styled.button`
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
+  transition: .3s;
+ 
+  &:not(:hover) {
+    box-shadow: 0 3px 14px -4px rgba(0, 0, 0, 0.788235294117647);
+  }
   
   &:active {
-    box-shadow: inset 2px 2px 1px rgba(0,0,0,.3);
+    opacity: .8;
+    border-color: rgba(0,0,0,0);
   }
   
   &:disabled {
